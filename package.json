@@ -4,7 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests --recursive"
+    "test": "mocha tests --recursive",
+    "build:image": "docker build -t gcr.io/kubernetes-learn-197422/last-week-weather-service .",
+    "delete:image": "docker images | grep \"gcr.io/kubernetes-learn-197422/last-week-weather-service\" | awk '{print $3}' | xargs docker rmi",
+    "push:image": "gcloud docker -- push gcr.io/kubernetes-learn-197422/last-week-weather-service",
+    "buildpush:image": "npm run build:image && npm run push:image",
+    "delete:remoteimage": "gcloud container images delete gcr.io/kubernetes-learn-197422/last-week-weather-service --quiet",
+    "deploy:image": "kubectl create -f deployment.yml",
+    "delete:deployment": "kubectl delete deployments/last-week-weather-service",
+    "expose": "kubectl expose deployment last-week-weather-service --type='LoadBalancer'",
+    "unexpose": "kubectl delete service/last-week-weather-service",
+    "clean": "npm run delete:image && npm run delete:remoteimage && npm run delete:deployment && npm run unexpose",
+    "deploy": "npm run build:image && npm run push:image && npm run deploy:image && npm run expose"
   },
   "keywords": [],
   "author": "",
