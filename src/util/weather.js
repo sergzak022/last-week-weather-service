@@ -28,7 +28,6 @@ function getLastWeekWeather ( latitude, longitude ) {
   );
 }
 
-//NOTE: don't test
 function getLastWeekDates( latitude, longitude ) {
   let timezone = tzLookup( latitude, longitude );
   let lastWeekFirstDayDate = getLastWeekFirsDaytDateForTimezone( timezone );
@@ -36,13 +35,11 @@ function getLastWeekDates( latitude, longitude ) {
   return getDatesRange(lastWeekFirstDayDate, 7);
 }
 
-//NOTE: don't test
 function getLastWeekFirsDaytDateForTimezone( timezone ) {
   let currDateTime = getDateTimeFromTimezone( timezone )
   return getFirstDateOfLastWeek(currDateTime);
 }
 
-//NOTE: don't test
 function getDateTimeFromTimezone( timezone ) {
   return moment.tz(timezone).toDate();
 }
