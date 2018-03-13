@@ -1,4 +1,4 @@
-const {first, assign} = require('lodash');
+const { first, assign } = require('lodash');
 const moment = require('moment-timezone');
 const DarkSky = require('dark-sky')
 //NOTE: remove api key from the code

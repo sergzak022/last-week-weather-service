@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests --recursive",
+    "test": "DARKSKY_API_KEY=12345 mocha tests --recursive",
     "build:image": "docker build -t gcr.io/kubernetes-learn-197422/last-week-weather-service .",
     "delete:image": "docker images | grep \"gcr.io/kubernetes-learn-197422/last-week-weather-service\" | awk '{print $3}' | xargs docker rmi",
     "push:image": "gcloud docker -- push gcr.io/kubernetes-learn-197422/last-week-weather-service",
@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "dark-sky": "^1.1.2",
     "express": "^4.16.2",
     "lodash": "^4.17.5",
