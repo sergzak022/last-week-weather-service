@@ -1,11 +1,5 @@
 # Last Week Weather Service
 
-TODO:
-  - change the gcp project name
-  - finish writing README.md file
-  - add a script to create/remove a secret
-  - provide access to other people
-
 ## Description
 
 This service provides last week weather information.
@@ -13,7 +7,7 @@ The client/service communication is done through HTTP (GET request).
 Client needs to send a GET request with the latitude and longitude passed as query parameters.
 If the request is successful client receives a JSON response back.
 
-### Example Usage
+## Example Usage
 
 `curl "http://{ip-address}:{port}?latitude=34.0522&longitude=-118.2437"`
 
@@ -67,8 +61,27 @@ weather for a one day of the last week.
 Please refer to dark sky documentation for the explanation
 of the data in the response.
 
-## Deployment
+## Deployment Instructions (for mac users)
 
-To deploy this service you need to have `docker`, `gcloud` and `kubectl`.
+To deploy this service you need to have `docker`, `gcloud`
+and `kubectl` installed.
 
-You need to create have a project created.
+1. Create a new project via Google Cloud Console.
+
+2. Enable Kubernetes API.
+
+3. Create a new Kubernentes cluster.
+  `gcloud config set project [PROJECT_ID]`
+
+4. Use a newly created project id to set a default project.
+  `gcloud config set project [PROJECT_ID]`
+
+5. Get authentication credentials for the cluster.
+  `gcloud container clusters get-credentials [CLUSTER_NAME]`
+
+6. Create a secret with your dark sky API key.
+  `kubectl create secret generic darkskykey --from-literal=darkskyKey=[DARK_SKY_API_KEY]`
+
+7. Run `npm run deploy`.
+
+8. Run `kubectl get services` to look up service external IP address and a port number.

@@ -11,8 +11,8 @@ spec:
     spec:     # pod spec
       containers:
       - name: last-week-weather-service
-        # cahnge kubernetes-learn-197422 to the name of your GCP project
-        image: gcr.io/kubernetes-learn-197422/last-week-weather-service # image we pushed
+        # cahnge weather-197903 to the name of your GCP project
+        image: gcr.io/weather-197903/last-week-weather-service # image we pushed
         env:
         - name: DARKSKY_API_KEY
           valueFrom:
