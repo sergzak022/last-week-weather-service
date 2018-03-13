@@ -82,6 +82,8 @@ and `kubectl` installed.
 6. Create a secret with your dark sky API key.
   ```kubectl create secret generic darkskykey --from-literal=darkskyKey=[DARK_SKY_API_KEY]```
 
-7. Run `npm run deploy`.
+7. Change deployment.yml and package.json scripts to use your project id.
 
-8. Run `kubectl get services` to look up service external IP address and a port number.
+8. Run `npm run deploy`.
+
+9. Run `kubectl get services` to look up service external IP address and a port number.
