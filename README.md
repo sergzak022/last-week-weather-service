@@ -71,16 +71,16 @@ and `kubectl` installed.
 2. Enable Kubernetes API.
 
 3. Create a new Kubernentes cluster.
-  `gcloud config set project [PROJECT_ID]`
+  ```gcloud config set project [PROJECT_ID]```
 
 4. Use a newly created project id to set a default project.
-  `gcloud config set project [PROJECT_ID]`
+  ```gcloud config set project [PROJECT_ID]```
 
 5. Get authentication credentials for the cluster.
-  `gcloud container clusters get-credentials [CLUSTER_NAME]`
+  ```gcloud container clusters get-credentials [CLUSTER_NAME]```
 
 6. Create a secret with your dark sky API key.
-  `kubectl create secret generic darkskykey --from-literal=darkskyKey=[DARK_SKY_API_KEY]`
+  ```kubectl create secret generic darkskykey --from-literal=darkskyKey=[DARK_SKY_API_KEY]```
 
 7. Run `npm run deploy`.
 
