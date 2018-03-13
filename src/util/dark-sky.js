@@ -1,9 +1,7 @@
 const { first, assign } = require('lodash');
 const moment = require('moment-timezone');
 const DarkSky = require('dark-sky')
-//NOTE: remove api key from the code
-//key: "e84b01f67aaae645838ea67fbe54dc9b"
-//make key a in capital letters
+
 const { DARKSKY_API_KEY } = process.env;
 if ( !DARKSKY_API_KEY ) {
   throw new Error('`DARKSKY_API_KEY` env variable must be set with valid dark sky api key')  ;
